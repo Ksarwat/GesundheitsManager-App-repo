@@ -4,12 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.example.gesundheitsmanager.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -18,14 +14,17 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        // Open navigation drawer when clicking the text
+        binding.textHome.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                androidx.drawerlayout.widget.DrawerLayout drawer = getActivity().findViewById(com.example.gesundheitsmanager.R.id.drawer_layout);
+                if (drawer != null) drawer.openDrawer(androidx.core.view.GravityCompat.START);
+            }
+        });
+
         return root;
     }
 

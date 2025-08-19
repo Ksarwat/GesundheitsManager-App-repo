@@ -12,14 +12,32 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.gesundheitsmanager.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_ernaehrung"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.ErnaehrungFragment"
+        android:label="@string/menu_ernaehrung"
+        tools:layout="@layout/fragment_ernaehrung" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.gesundheitsmanager.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_fitness"
+        android:name="com.example.gesundheitsmanager.ui.fitness.FitnessFragment"
+        android:label="@string/menu_fitness"
+        tools:layout="@layout/fragment_fitness" />
+
+    <fragment
+        android:id="@+id/nav_notizen"
+        android:name="com.example.gesundheitsmanager.ui.notizen.NotizenFragment"
+        android:label="@string/menu_notizen"
+        tools:layout="@layout/fragment_notizen" />
+
+    <fragment
+        android:id="@+id/nav_medikamente"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.MedikamenteFragment"
+        android:label="@string/menu_medikamente"
+        tools:layout="@layout/fragment_medikamente" />
+
+    <fragment
+        android:id="@+id/nav_notfallkontakte"
+        android:name="com.example.gesundheitsmanager.ui.notfallkontakte.NotfallkontakteFragment"
+        android:label="@string/menu_notfallkontakte"
+        tools:layout="@layout/fragment_notfallkontakte" />
 </navigation>
