@@ -40,4 +40,30 @@
         android:name="com.example.gesundheitsmanager.ui.notfallkontakte.NotfallkontakteFragment"
         android:label="@string/menu_notfallkontakte"
         tools:layout="@layout/fragment_notfallkontakte" />
+
+    <fragment
+        android:id="@+id/fragment_banane"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.BananeFragment"
+        android:label="Banane"
+        tools:layout="@layout/fragment_banane" />
+    <fragment
+        android:id="@+id/fragment_apfel"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.ApfelFragment"
+        android:label="Apfel"
+        tools:layout="@layout/fragment_apfel" />
+    <fragment
+        android:id="@+id/fragment_wassermelone"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.WassermeloneFragment"
+        android:label="Wassermelone"
+        tools:layout="@layout/fragment_wassermelone" />
+    <fragment
+        android:id="@+id/fragment_orange"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.OrangeFragment"
+        android:label="Orange"
+        tools:layout="@layout/fragment_orange" />
+    <fragment
+        android:id="@+id/fragment_erdbeere"
+        android:name="com.example.gesundheitsmanager.ui.ernaehrung.ErdbeereFragment"
+        android:label="Erdbeere"
+        tools:layout="@layout/fragment_erdbeere" />
 </navigation>
