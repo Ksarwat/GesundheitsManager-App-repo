@@ -24,13 +24,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Kalorien: ca. 89 kcal pro 100g"
+            android:textSize="18sp"
+            android:textColor="#388E3C"
+            android:layout_marginBottom="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Enthält: Kalium, Vitamin B6, Vitamin C, Ballaststoffe."
             android:textSize="18sp"
             android:layout_marginBottom="12dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weitere Infos:\n- Unterstützt die Herzgesundheit\n- Liefert schnelle Energie\n- Fördert die Verdauung\n- Kann die Stimmung verbessern (enthält Tryptophan)"
-            android:textSize="16sp"/>
+            android:text="Weitere Infos:\n- Unterstützt die Herzgesundheit\n- Liefert schnelle Energie\n- Fördert die Verdauung\n- Kann die Stimmung verbessern (enthält Tryptophan)\n\n- Banane ist leicht verdaulich und ideal für Sportler.\n- Enthält natürliche Zucker wie Glukose, Fruktose und Saccharose.\n- Kann bei Muskelkrämpfen helfen (Kalium).\n- Die Schale kann als Dünger verwendet werden.\n- Bananen sind glutenfrei.\n- Reife Bananen sind süßer, unreife enthalten mehr Stärke.\n- Bananen sind weltweit eine der meistgegessenen Früchte.\n- Sie können beim Backen als Ei-Ersatz dienen.\n- Bananen fördern die Darmgesundheit durch resistente Stärke.\n- Sie sind ein schneller Snack für unterwegs."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </ScrollView>

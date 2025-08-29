@@ -24,13 +24,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Kalorien: ca. 32 kcal pro 100g"
+            android:textSize="18sp"
+            android:textColor="#388E3C"
+            android:layout_marginBottom="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Enthält: Vitamin C, Mangan, Folsäure, Ballaststoffe."
             android:textSize="18sp"
             android:layout_marginBottom="12dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weitere Infos:\n- Reich an Antioxidantien\n- Unterstützt die Herzgesundheit\n- Kann Entzündungen hemmen\n- Gut für die Haut und das Immunsystem"
-            android:textSize="16sp"/>
+            android:text="Weitere Infos:\n- Reich an Antioxidantien\n- Unterstützt die Herzgesundheit\n- Kann Entzündungen hemmen\n- Gut für die Haut und das Immunsystem\n\n- Erdbeeren bestehen zu 90% aus Wasser.\n- Sie sind kalorienarm und erfrischend.\n- Enthalten Ellagsäure, die antioxidativ wirkt.\n- Erdbeeren sind beliebt in Desserts, Kuchen und Smoothies.\n- Sie enthalten wenig Zucker im Vergleich zu anderen Früchten.\n- Erdbeeren sind eine gute Quelle für Ballaststoffe.\n- Sie können helfen, den Blutdruck zu senken.\n- Erdbeeren sind auch roh ein Genuss.\n- Sie sind ein Symbol für den Sommer.\n- Erdbeeren sind botanisch gesehen keine Beeren, sondern Sammelnussfrüchte."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </ScrollView>

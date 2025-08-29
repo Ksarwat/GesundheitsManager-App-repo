@@ -24,13 +24,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Kalorien: ca. 52 kcal pro 100g"
+            android:textSize="18sp"
+            android:textColor="#388E3C"
+            android:layout_marginBottom="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Enthält: Vitamin C, Ballaststoffe, Antioxidantien."
             android:textSize="18sp"
             android:layout_marginBottom="12dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weitere Infos:\n- Unterstützt das Immunsystem\n- Fördert die Zahngesundheit\n- Kann das Risiko für Herzkrankheiten senken\n- Gut für die Verdauung (Pektin)"
-            android:textSize="16sp"/>
+            android:text="Weitere Infos:\n- Unterstützt das Immunsystem\n- Fördert die Zahngesundheit\n- Kann das Risiko für Herzkrankheiten senken\n- Gut für die Verdauung (Pektin)\n\n- Äpfel enthalten viele sekundäre Pflanzenstoffe.\n- Die Schale enthält besonders viele Nährstoffe.\n- Äpfel sind kalorienarm und sättigend.\n- Sie können helfen, den Blutzuckerspiegel zu regulieren.\n- Äpfel sind ein beliebter Snack für Kinder.\n- Es gibt weltweit über 20.000 Apfelsorten.\n- Apfelsaft ist ein beliebtes Getränk.\n- Äpfel können roh, gekocht oder gebacken gegessen werden.\n- Sie sind reich an Quercetin, einem Antioxidans.\n- An apple a day keeps the doctor away."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </ScrollView>

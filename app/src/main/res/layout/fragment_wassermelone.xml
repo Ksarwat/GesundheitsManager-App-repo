@@ -24,13 +24,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Kalorien: ca. 30 kcal pro 100g"
+            android:textSize="18sp"
+            android:textColor="#388E3C"
+            android:layout_marginBottom="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Enthält: Wasser, Vitamin C, Vitamin A, Lycopin."
             android:textSize="18sp"
             android:layout_marginBottom="12dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weitere Infos:\n- Sehr kalorienarm\n- Wirkt erfrischend und hydrierend\n- Lycopin kann das Risiko für bestimmte Krebsarten senken\n- Gut für die Hautgesundheit"
-            android:textSize="16sp"/>
+            android:text="Weitere Infos:\n- Sehr kalorienarm\n- Wirkt erfrischend und hydrierend\n- Lycopin kann das Risiko für bestimmte Krebsarten senken\n- Gut für die Hautgesundheit\n\n- Wassermelone besteht zu über 90% aus Wasser.\n- Sie ist ein beliebter Sommer-Snack.\n- Enthält Citrullin, das die Durchblutung fördern kann.\n- Die Kerne sind essbar und enthalten Proteine.\n- Wassermelone ist gut für die Nierenfunktion.\n- Sie enthält wenig Fett und kein Cholesterin.\n- Die rote Farbe stammt vom Antioxidans Lycopin.\n- Wassermelone kann als Saft, im Salat oder pur gegessen werden.\n- Sie ist auch für Diabetiker geeignet (in Maßen).\n- Die Schale kann eingelegt oder gekocht werden."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </ScrollView>

@@ -66,4 +66,30 @@
         android:name="com.example.gesundheitsmanager.ui.ernaehrung.ErdbeereFragment"
         android:label="Erdbeere"
         tools:layout="@layout/fragment_erdbeere" />
+
+    <fragment
+        android:id="@+id/fragment_aspirin"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.AspirinFragment"
+        android:label="Aspirin"
+        tools:layout="@layout/fragment_aspirin" />
+    <fragment
+        android:id="@+id/fragment_ibuprofen"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.IbuprofenFragment"
+        android:label="Ibuprofen"
+        tools:layout="@layout/fragment_ibuprofen" />
+    <fragment
+        android:id="@+id/fragment_paracetamol"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.ParacetamolFragment"
+        android:label="Paracetamol"
+        tools:layout="@layout/fragment_paracetamol" />
+    <fragment
+        android:id="@+id/fragment_amoxicillin"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.AmoxicillinFragment"
+        android:label="Amoxicillin"
+        tools:layout="@layout/fragment_amoxicillin" />
+    <fragment
+        android:id="@+id/fragment_lisinopril"
+        android:name="com.example.gesundheitsmanager.ui.medikamente.LisinoprilFragment"
+        android:label="Lisinopril"
+        tools:layout="@layout/fragment_lisinopril" />
 </navigation>

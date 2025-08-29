@@ -24,13 +24,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enthält: Vitamin C, Ballaststoffe, Folsäure, Antioxidantien."
+            android:text="Kalorien: ca. 47 kcal pro 100g"
             android:textSize="18sp"
+            android:textColor="#388E3C"
             android:layout_marginBottom="12dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weitere Infos:\n- Stärkt das Immunsystem\n- Fördert die Eisenaufnahme\n- Gut für die Haut\n- Kann den Cholesterinspiegel senken"
-            android:textSize="16sp"/>
+            android:text="Enthält: Vitamin C, Ballaststoffe, Folsäure, Antioxidantien."
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weitere Infos:\n- Stärkt das Immunsystem\n- Fördert die Eisenaufnahme\n- Gut für die Haut\n- Kann den Cholesterinspiegel senken\n\n- Orangen enthalten sekundäre Pflanzenstoffe wie Flavonoide, die antioxidativ wirken.\n- Sie unterstützen die Kollagenbildung und damit die Hautelastizität.\n- Orangen sind sehr wasserreich und helfen beim Flüssigkeitshaushalt.\n- Sie können helfen, den Blutdruck zu regulieren.\n- Die enthaltenen Ballaststoffe fördern die Verdauung.\n- Orangen sind fettarm und enthalten kaum Eiweiß.\n- Sie sind ein beliebter Snack für Sportler und Kinder.\n- Die Schale enthält ätherische Öle, die in der Lebensmittelindustrie und Kosmetik verwendet werden.\n- Orangen können das Risiko für Herz-Kreislauf-Erkrankungen senken.\n- Sie sind vielseitig verwendbar: als Saft, im Obstsalat, als Snack oder in Desserts."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </ScrollView>

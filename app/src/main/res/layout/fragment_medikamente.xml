@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Medikamente"
-        android:textSize="24sp"
-        android:layout_gravity="center"/>
-</FrameLayout>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+        <Button
+            android:id="@+id/button_aspirin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aspirin"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/button_ibuprofen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ibuprofen"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/button_paracetamol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paracetamol"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/button_amoxicillin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amoxicillin"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/button_lisinopril"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lisinopril"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+</ScrollView>
