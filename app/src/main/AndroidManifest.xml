@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name="com.example.gesundheitsmanager.ui.notizen.ReminderNotificationHelper$ReminderReceiver"/>
     </application>
 
 </manifest>

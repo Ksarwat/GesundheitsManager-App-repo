@@ -92,4 +92,10 @@
         android:name="com.example.gesundheitsmanager.ui.medikamente.LisinoprilFragment"
         android:label="Lisinopril"
         tools:layout="@layout/fragment_lisinopril" />
+
+    <fragment
+        android:id="@+id/fragment_add_reminder"
+        android:name="com.example.gesundheitsmanager.ui.notizen.AddReminderFragment"
+        android:label="Erinnerung hinzufügen"
+        tools:layout="@layout/fragment_add_reminder" />
 </navigation>
