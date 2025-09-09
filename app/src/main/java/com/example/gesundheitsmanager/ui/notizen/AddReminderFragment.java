@@ -44,6 +44,7 @@ public class AddReminderFragment extends Fragment {
         Button buttonSave = view.findViewById(R.id.buttonSaveReminder);
         ListView listViewReminders = view.findViewById(R.id.listViewReminders);
         TextView textViewFrequencyLabel = view.findViewById(R.id.textViewFrequencyLabel);
+        Button buttonPickDate = view.findViewById(R.id.buttonPickDate);
 
         adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, reminderList);
         listViewReminders.setAdapter(adapter);
@@ -114,6 +115,29 @@ public class AddReminderFragment extends Fragment {
         editTextStartDate.setVisibility(isMedical && spinnerFrequencyType.getSelectedItemPosition() == 1 ? View.VISIBLE : View.GONE);
         editTextDate.setVisibility(isMedical ? View.GONE : View.VISIBLE);
 
+        // Set default date to today
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd.MM.yyyy");
+        String todayDate = sdf.format(new java.util.Date());
+        editTextDate.setText(todayDate);
+
+        // Open calendar picker on button click
+        buttonPickDate.setOnClickListener(v -> {
+            java.util.Calendar calendar = java.util.Calendar.getInstance();
+            String currentDate = editTextDate.getText().toString();
+            try {
+                java.util.Date parsedDate = sdf.parse(currentDate);
+                calendar.setTime(parsedDate);
+            } catch (Exception ignored) {}
+            int year = calendar.get(java.util.Calendar.YEAR);
+            int month = calendar.get(java.util.Calendar.MONTH);
+            int day = calendar.get(java.util.Calendar.DAY_OF_MONTH);
+            new android.app.DatePickerDialog(requireContext(), (view1, y, m, d) -> {
+                java.util.Calendar picked = java.util.Calendar.getInstance();
+                picked.set(y, m, d);
+                editTextDate.setText(sdf.format(picked.getTime()));
+            }, year, month, day).show();
+        });
+
         ReminderNotificationHelper.createNotificationChannel(requireContext());
 
         buttonSave.setOnClickListener(v -> {
@@ -153,7 +177,20 @@ public class AddReminderFragment extends Fragment {
             adapter.notifyDataSetChanged();
             saveReminderToFile(type, title, date, time, freqType, freqValue, "", startDate);
             // Benachrichtigung planen
+            boolean validDoctorFormat = true;
+            if (type.equals("Arzttermin")) {
+                // Validate date format dd.MM.yyyy
+                validDoctorFormat = date.matches("\\d{2}\\.\\d{2}\\.\\d{4}") && time.matches("\\d{2}:\\d{2}");
+                if (!validDoctorFormat) {
+                    Toast.makeText(getContext(), "Ungültiges Format! Datum: TT.MM.JJJJ, Uhrzeit: HH:MM", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
             long triggerMillis = parseReminderTime(type, date, time, startDate);
+            if (type.equals("Arzttermin") && triggerMillis <= 0) {
+                Toast.makeText(getContext(), "Ungültiges Datum oder Uhrzeit für Arzttermin! Bitte korrekt eingeben (z.B. 09.09.2025 und 08:00)", Toast.LENGTH_LONG).show();
+                return;
+            }
             if (triggerMillis > 0) {
                 String msg = type.equals("Medikament") ? "Zeit für dein Medikament: " + title : "Arzttermin: " + title;
                 ReminderNotificationHelper.scheduleNotification(requireContext(), triggerMillis, "Erinnerung", msg);
@@ -220,6 +257,9 @@ public class AddReminderFragment extends Fragment {
         try {
             String dateTimeStr;
             if (type.equals("Arzttermin")) {
+                if (date == null || date.isEmpty() || time == null || time.isEmpty()) {
+                    return -1;
+                }
                 dateTimeStr = date + " " + time;
             } else {
                 // Für Medikamente: Startdatum + Zeit, sonst heute + Zeit
@@ -229,6 +269,7 @@ public class AddReminderFragment extends Fragment {
             java.util.Date dt = sdf.parse(dateTimeStr);
             return dt.getTime();
         } catch (Exception e) {
+            android.util.Log.e("ReminderParse", "Fehler beim Parsen von Datum/Uhrzeit: " + e.getMessage());
             return -1;
         }
     }
@@ -240,12 +281,29 @@ class ReminderNotificationHelper {
     private static final int NOTIFICATION_ID = 1001;
 
     public static void scheduleNotification(Context context, long triggerAtMillis, String title, String message) {
-        Intent intent = new Intent(context, ReminderReceiver.class);
-        intent.putExtra("title", title);
-        intent.putExtra("message", message);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
+        if (context == null) {
+            android.util.Log.e("ReminderNotification", "Context is null, cannot schedule notification.");
+            return;
+        }
+        if (triggerAtMillis <= System.currentTimeMillis()) {
+            android.util.Log.e("ReminderNotification", "Trigger time is not in the future: " + triggerAtMillis);
+            return;
+        }
+        try {
+            Intent intent = new Intent(context, ReminderReceiver.class);
+            intent.putExtra("title", title);
+            intent.putExtra("message", message);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null) {
+                triggerAtMillis = System.currentTimeMillis() + 3000;
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
+            } else {
+                android.util.Log.e("ReminderNotification", "AlarmManager is null, cannot schedule notification.");
+            }
+        } catch (Exception e) {
+            android.util.Log.e("ReminderNotification", "Exception scheduling notification: " + e.getMessage());
+        }
     }
 
     public static void createNotificationChannel(Context context) {
@@ -258,18 +316,19 @@ class ReminderNotificationHelper {
     }
 
     public static class ReminderReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String title = intent.getStringExtra("title");
-            String message = intent.getStringExtra("message");
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setSmallIcon(android.R.drawable.ic_dialog_info)
-                    .setContentTitle(title)
-                    .setContentText(message)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setAutoCancel(true);
-            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(NOTIFICATION_ID, builder.build());
-        }
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        android.util.Log.i("ReminderReceiver", "onReceive called: notification should be shown");
+        String title = intent.getStringExtra("title");
+        String message = intent.getStringExtra("message");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true);
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID, builder.build());
+    }
     }
 }

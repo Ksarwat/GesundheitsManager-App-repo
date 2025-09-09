@@ -45,9 +45,21 @@
         android:id="@+id/editTextDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Datum (z.B. 01.09.2025)"
-        android:layout_marginBottom="16dp"
+        android:hint="Datum wählen"
+        android:focusable="false"
+        android:clickable="false"
+        android:inputType="none"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="8dp"
         android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/buttonPickDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datum wählen"
+        android:layout_gravity="end"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
         android:id="@+id/editTextTime"
