@@ -205,6 +205,21 @@ public class AddReminderFragment extends Fragment {
             Toast.makeText(getContext(), "Erinnerung gespeichert", Toast.LENGTH_SHORT).show();
         });
 
+        // Replace manual time entry for Arzttermin with a TimePickerDialog (spinner style)
+        editTextTime.setFocusable(false);
+        editTextTime.setClickable(true);
+        editTextTime.setOnClickListener(v -> {
+            java.util.Calendar now = java.util.Calendar.getInstance();
+            int hour = now.get(java.util.Calendar.HOUR_OF_DAY);
+            int minute = now.get(java.util.Calendar.MINUTE);
+            android.app.TimePickerDialog timePicker = new android.app.TimePickerDialog(requireContext(), android.app.TimePickerDialog.THEME_HOLO_LIGHT,
+                (view1, selectedHour, selectedMinute) -> {
+                    String formatted = String.format("%02d:%02d", selectedHour, selectedMinute);
+                    editTextTime.setText(formatted);
+                }, hour, minute, true);
+            timePicker.show();
+        });
+
         return view;
     }
 
@@ -267,9 +282,13 @@ public class AddReminderFragment extends Fragment {
             }
             java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd.MM.yyyy HH:mm");
             java.util.Date dt = sdf.parse(dateTimeStr);
-            return dt.getTime();
+            long millis = dt.getTime();
+            android.util.Log.i("ReminderParse", "Parsed dateTimeStr: '" + dateTimeStr + "' -> millis: " + millis + ", now: " + System.currentTimeMillis());
+            android.widget.Toast.makeText(requireContext(), "Parsed: " + dateTimeStr + " (" + millis + ")", android.widget.Toast.LENGTH_SHORT).show();
+            return millis;
         } catch (Exception e) {
             android.util.Log.e("ReminderParse", "Fehler beim Parsen von Datum/Uhrzeit: " + e.getMessage());
+            android.widget.Toast.makeText(requireContext(), "Fehler beim Parsen: " + e.getMessage(), android.widget.Toast.LENGTH_LONG).show();
             return -1;
         }
     }
@@ -285,9 +304,38 @@ class ReminderNotificationHelper {
             android.util.Log.e("ReminderNotification", "Context is null, cannot schedule notification.");
             return;
         }
+        // Check for SCHEDULE_EXACT_ALARM permission on Android 12+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
+                Intent intent = new Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                intent.setData(android.net.Uri.parse("package:" + context.getPackageName()));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                android.widget.Toast.makeText(context, "Bitte erlauben Sie 'Genaues Wecken' in den Einstellungen und versuchen Sie es erneut.", android.widget.Toast.LENGTH_LONG).show();
+                android.util.Log.e("ReminderNotification", "App does not have permission to schedule exact alarms. Prompting user.");
+                return;
+            }
+        }
+        // Check if notifications are enabled for this app
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (!notificationManager.areNotificationsEnabled()) {
+                android.widget.Toast.makeText(context, "Benachrichtigungen sind deaktiviert. Bitte aktivieren Sie sie in den Einstellungen.", android.widget.Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                        .putExtra(android.provider.Settings.EXTRA_APP_PACKAGE, context.getPackageName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                android.util.Log.e("ReminderNotification", "Notifications are disabled. Prompting user to enable.");
+                return;
+            }
+        }
+        // Do not overwrite triggerAtMillis! Use the value passed in.
         if (triggerAtMillis <= System.currentTimeMillis()) {
-            android.util.Log.e("ReminderNotification", "Trigger time is not in the future: " + triggerAtMillis);
-            return;
+            String msg = "Trigger time is not in the future: " + triggerAtMillis + " current time " + System.currentTimeMillis();
+            android.util.Log.e("ReminderNotification", msg);
+            android.widget.Toast.makeText(context, msg, android.widget.Toast.LENGTH_LONG).show();
+            triggerAtMillis = System.currentTimeMillis() + 60000; // Set to 1 minute in the future as fallback
         }
         try {
             Intent intent = new Intent(context, ReminderReceiver.class);
@@ -296,8 +344,8 @@ class ReminderNotificationHelper {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             if (alarmManager != null) {
-                triggerAtMillis = System.currentTimeMillis() + 3000;
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
+                android.util.Log.i("ReminderNotification", "Notification scheduled for: " + triggerAtMillis);
             } else {
                 android.util.Log.e("ReminderNotification", "AlarmManager is null, cannot schedule notification.");
             }
