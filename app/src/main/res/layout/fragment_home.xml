@@ -1,73 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="22sp"
         android:text="Willkommen im GesundheitsManager!"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginBottom="24dp" />
 
-    <Button
-        android:id="@+id/buttonErnaehrung"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ernährung"
-        app:layout_constraintTop_toBottomOf="@id/text_home"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/buttonNotizen"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Notizen"
-        app:layout_constraintTop_toBottomOf="@id/buttonErnaehrung"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_food"/>
+                <TextView
+                    android:id="@+id/buttonErnaehrung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ernährung"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_note"/>
+                <TextView
+                    android:id="@+id/buttonNotizen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notizen"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonFitness"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Fitness Tracker"
-        app:layout_constraintTop_toBottomOf="@id/buttonNotizen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_fitness"/>
+                <TextView
+                    android:id="@+id/buttonFitness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fitness Tracker"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_med"/>
+                <TextView
+                    android:id="@+id/buttonMedikamente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medikamente"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonMedikamente"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Medikamente"
-        app:layout_constraintTop_toBottomOf="@id/buttonFitness"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/buttonNotfallkontakte"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Notfallkontakte"
-        app:layout_constraintTop_toBottomOf="@id/buttonMedikamente"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_contact"/>
+                <TextView
+                    android:id="@+id/buttonNotfallkontakte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notfallkontakte"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
