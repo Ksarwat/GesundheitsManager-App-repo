@@ -17,12 +17,32 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Open navigation drawer when clicking the text
         binding.textHome.setOnClickListener(v -> {
             if (getActivity() != null) {
                 androidx.drawerlayout.widget.DrawerLayout drawer = getActivity().findViewById(com.example.gesundheitsmanager.R.id.drawer_layout);
                 if (drawer != null) drawer.openDrawer(androidx.core.view.GravityCompat.START);
             }
+        });
+
+        binding.buttonErnaehrung.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_ernaehrung);
+        });
+        binding.buttonNotizen.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_notizen);
+        });
+        binding.buttonFitness.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_fitness);
+        });
+        binding.buttonMedikamente.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_medikamente);
+        });
+        binding.buttonNotfallkontakte.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_notfallkontakte);
         });
 
         return root;

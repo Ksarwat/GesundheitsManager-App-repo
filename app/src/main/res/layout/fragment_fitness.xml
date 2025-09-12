@@ -3,10 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fitness Tracker"
-        android:textSize="24sp"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fitness Tracker"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"/>
+        <Button
+            android:id="@+id/buttonSquat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kniebeuge (Squat)"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/buttonPushUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liegestütz (Push-up)"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/buttonLunge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ausfallschritt (Lunge)"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/buttonDeadlift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kreuzheben (Deadlift)"
+            android:layout_marginBottom="16dp"/>
+        <Button
+            android:id="@+id/buttonPullUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Klimmzug (Pull-up)"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
 </FrameLayout>

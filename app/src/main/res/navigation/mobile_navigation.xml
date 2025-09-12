@@ -22,6 +22,31 @@
         android:name="com.example.gesundheitsmanager.ui.fitness.FitnessFragment"
         android:label="@string/menu_fitness"
         tools:layout="@layout/fragment_fitness" />
+    <fragment
+        android:id="@+id/nav_squat_detail"
+        android:name="com.example.gesundheitsmanager.ui.fitness.SquatDetailFragment"
+        android:label="Kniebeuge (Squat)"
+        tools:layout="@layout/fragment_squat_detail" />
+    <fragment
+        android:id="@+id/nav_pushup_detail"
+        android:name="com.example.gesundheitsmanager.ui.fitness.PushUpDetailFragment"
+        android:label="Liegestütz (Push-up)"
+        tools:layout="@layout/fragment_pushup_detail" />
+    <fragment
+        android:id="@+id/nav_lunge_detail"
+        android:name="com.example.gesundheitsmanager.ui.fitness.LungeDetailFragment"
+        android:label="Ausfallschritt (Lunge)"
+        tools:layout="@layout/fragment_lunge_detail" />
+    <fragment
+        android:id="@+id/nav_deadlift_detail"
+        android:name="com.example.gesundheitsmanager.ui.fitness.DeadliftDetailFragment"
+        android:label="Kreuzheben (Deadlift)"
+        tools:layout="@layout/fragment_deadlift_detail" />
+    <fragment
+        android:id="@+id/nav_pullup_detail"
+        android:name="com.example.gesundheitsmanager.ui.fitness.PullUpDetailFragment"
+        android:label="Klimmzug (Pull-up)"
+        tools:layout="@layout/fragment_pullup_detail" />
 
     <fragment
         android:id="@+id/nav_notizen"
