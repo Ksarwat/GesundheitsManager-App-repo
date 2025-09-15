@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ListView
+        android:id="@+id/listViewNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonEditNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bearbeiten"
+            android:enabled="false" />
+
+        <Button
+            android:id="@+id/buttonDeleteNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Löschen"
+            android:enabled="false"
+            android:layout_marginStart="16dp" />
+
+        <Button
+            android:id="@+id/buttonDeleteAllNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle löschen"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+</LinearLayout>

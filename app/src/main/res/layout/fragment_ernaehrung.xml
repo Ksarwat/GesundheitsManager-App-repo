@@ -8,45 +8,131 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="32dp">
-
+        android:padding="24dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ernährung"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="24dp"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:rowOrderPreserved="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_outline_purple"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/banane"
+                    android:contentDescription="Banane" />
+                <Button
+                    android:id="@+id/button_banane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Banane"
+                    android:background="@android:color/white"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_outline_purple"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/apfel"
+                    android:contentDescription="Apfel" />
+                <Button
+                    android:id="@+id/button_apfel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apfel"
+                    android:background="@android:color/white"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_outline_purple"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/wassermelone"
+                    android:contentDescription="Wassermelone" />
 
-        <Button
-            android:id="@+id/button_banane"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Banane"
-            android:layout_marginBottom="16dp"/>
-        <Button
-            android:id="@+id/button_apfel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Apfel"
-            android:layout_marginBottom="16dp"/>
-        <Button
-            android:id="@+id/button_wassermelone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wassermelone"
-            android:layout_marginBottom="16dp"/>
-        <Button
-            android:id="@+id/button_orange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Orange"
-            android:layout_marginBottom="16dp"/>
-        <Button
-            android:id="@+id/button_erdbeere"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Erdbeere"
-            android:layout_marginBottom="16dp"/>
+                <Button
+                    android:id="@+id/button_wassermelone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="Wassermelone"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_outline_purple"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/orange"
+                    android:contentDescription="Orange" />
+                <Button
+                    android:id="@+id/button_orange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Orange"
+                    android:background="@android:color/white"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_outline_purple"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/erdbeere"
+                    android:contentDescription="Erdbeere" />
+                <Button
+                    android:id="@+id/button_erdbeere"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Erdbeere"
+                    android:background="@android:color/white"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </GridLayout>
     </LinearLayout>
 </ScrollView>
