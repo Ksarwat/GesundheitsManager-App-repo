@@ -15,4 +15,5 @@
     <string name="menu_notizen">Notizen</string>
     <string name="menu_medikamente">Medikamente</string>
     <string name="menu_notfallkontakte">Notfallkontakte</string>
+    <string name="menu_erste_hilfe">Erste Hilfe</string>
 </resources>

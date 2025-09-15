@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
     <ImageView
-        android:id="@+id/imageNotfallkontakt"
-        android:layout_width="400dp"
-        android:layout_height="1400dp"
-        android:src="@drawable/notfallkontakt"
+        android:id="@+id/imageErsteHilfe"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:src="@drawable/erstehilfe"
     android:scaleType="fitCenter"
-        android:contentDescription="Notfallkontakt Bild"
+        android:contentDescription="Erste Hilfe Bild"
         android:layout_gravity="center" />
 </FrameLayout>

@@ -45,6 +45,11 @@ public class HomeFragment extends Fragment {
             navController.navigate(com.example.gesundheitsmanager.R.id.nav_notfallkontakte);
         });
 
+        binding.buttonErsteHilfe.setOnClickListener(v -> {
+            androidx.navigation.NavController navController = androidx.navigation.Navigation.findNavController(requireActivity(), com.example.gesundheitsmanager.R.id.nav_host_fragment_content_main);
+            navController.navigate(com.example.gesundheitsmanager.R.id.nav_erste_hilfe);
+        });
+
         return root;
     }
 

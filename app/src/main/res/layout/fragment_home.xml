@@ -143,6 +143,26 @@
                     android:textSize="16sp"
                     android:gravity="center"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/button_outline_purple"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_firstaid"/>
+                <TextView
+                    android:id="@+id/buttonErsteHilfe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Erste Hilfe"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
