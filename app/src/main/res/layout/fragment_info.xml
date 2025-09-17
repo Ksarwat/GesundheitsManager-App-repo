@@ -8,17 +8,17 @@
 
     <ImageView
         android:id="@+id/imageGesundheit"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/gesundheit"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
         android:contentDescription="Gesundheit Bild"
-        android:layout_gravity="center" />
+        android:src="@drawable/gesundheit" />
 
     <TextView
         android:id="@+id/textInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Willkommen zur GesundheitsManager App!\n\nMit dieser App können Sie Ihre medizinischen Erinnerungen und Arzttermine einfach verwalten. Bleiben Sie organisiert und gesund!"
+        android:text="Ihre Gesundheit ist uns wichtig.\n\nMit GesundheitsManager erhalten Sie wichtige Informationen rund um Essen und Medikamente – und wir erinnern Sie zuverlässig an Ihre Arzttermine."
         android:textAlignment="center"
         android:textSize="18sp"
         android:layout_marginTop="24dp" />
@@ -27,7 +27,7 @@
         android:id="@+id/buttonWeiter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weiter"
+        android:text="Los geht’s"
         android:layout_gravity="center"
         android:layout_marginTop="32dp" />
 
