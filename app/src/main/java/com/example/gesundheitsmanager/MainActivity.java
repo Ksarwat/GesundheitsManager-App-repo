@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         R.id.nav_home, R.id.nav_ernaehrung, R.id.nav_fitness, R.id.nav_notizen, R.id.nav_medikamente, R.id.nav_notfallkontakte, R.id.nav_erste_hilfe)
         .setOpenableLayout(drawer)
         .build();
+        navigationView.setItemIconTintList(null);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

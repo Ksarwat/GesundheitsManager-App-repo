@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="info_welcome">Willkommen zur GesundheitsManager App!</string>
+    <string name="info_text">Mit dieser App können Sie Ihre medizinischen Erinnerungen und Arzttermine einfach verwalten. Bleiben Sie organisiert und gesund!</string>
+    <string name="weiter">Weiter</string>
+</resources>

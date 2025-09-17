@@ -6,27 +6,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_ernaehrung"
-            android:icon="@drawable/apfel"
+            android:icon="@drawable/ernaehrung"
             android:title="@string/menu_ernaehrung" />
         <item
             android:id="@+id/nav_fitness"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/fit_tracker"
             android:title="@string/menu_fitness" />
         <item
             android:id="@+id/nav_notizen"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/notizen"
             android:title="@string/menu_notizen" />
         <item
             android:id="@+id/nav_medikamente"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/medik"
             android:title="@string/menu_medikamente" />
         <item
             android:id="@+id/nav_notfallkontakte"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/notfall"
             android:title="@string/menu_notfallkontakte" />
         <item
             android:id="@+id/nav_erste_hilfe"
-            android:icon="@drawable/ic_firstaid"
-            android:title="ErsteHilfe" />
+            android:enabled="true"
+            android:icon="@drawable/erste_hilfe"
+            android:title="ErsteHilfe"
+            android:visible="true" />
     </group>
 </menu>
