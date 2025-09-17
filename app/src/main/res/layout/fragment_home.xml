@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="22sp"
-        android:text="Willkommen im GesundheitsManager!"
+        android:text="Alles über deine Gesundheit"
         android:layout_marginBottom="24dp" />
 
     <LinearLayout
