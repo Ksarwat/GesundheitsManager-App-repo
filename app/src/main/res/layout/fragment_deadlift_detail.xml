@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/imageDeadlift"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="440dp"
         android:src="@drawable/kreuzheben"
         android:scaleType="centerInside"
         android:contentDescription="Bild: Kreuzheben" />

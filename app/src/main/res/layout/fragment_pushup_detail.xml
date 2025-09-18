@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/imagePushUp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="440dp"
         android:src="@drawable/liegestutz"
         android:scaleType="centerInside"
         android:contentDescription="Bild: Liegestütz" />

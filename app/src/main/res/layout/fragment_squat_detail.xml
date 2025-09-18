@@ -4,13 +4,15 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
+
     <ImageView
         android:id="@+id/imageSquat"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/kniebeuge"
+        android:layout_height="440dp"
+        android:contentDescription="Bild: Kniebeuge"
         android:scaleType="centerInside"
-        android:contentDescription="Bild: Kniebeuge" />
+        android:src="@drawable/kniebeuge" />
+
     <TextView
         android:id="@+id/textSquatDetail"
         android:layout_width="match_parent"
