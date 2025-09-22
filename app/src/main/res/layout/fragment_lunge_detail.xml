@@ -11,11 +11,17 @@
         android:src="@drawable/ausfallschrictt"
         android:scaleType="centerInside"
         android:contentDescription="Bild: Ausfallschritt" />
-    <TextView
-        android:id="@+id/textLungeDetail"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:padding="24dp"
-        android:textColor="@android:color/black"/>
-</LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/textLungeDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="24dp"
+            android:textColor="@android:color/black"/>
+    </ScrollView>
+    </LinearLayout>
